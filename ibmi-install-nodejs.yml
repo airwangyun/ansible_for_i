@@ -24,7 +24,10 @@
     command: /QOpensys/pkgs/bin/yum upgrade -y
 
   - name: create symlink for git command to use git module
-    command: ln -fs /QOpensys/pkgs/bin/git /usr/bin/git
+    file:
+      state: link
+      src: /QOpensys/pkgs/bin/git
+      path: /usr/bin/git
     ignore_errors: true
     
   - name: set http.sslVerify for git
