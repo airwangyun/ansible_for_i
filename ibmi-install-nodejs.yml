@@ -21,7 +21,9 @@
     when: git_stat.stat.exists == false
 
   - name: upgrade yum in case EC_POINT_copy error
-    command: /QOpensys/pkgs/bin/yum upgrade -y
+    yum:
+      name: '*'
+      state: 'latest'
 
   - name: create symlink for git command to use git module
     file:
