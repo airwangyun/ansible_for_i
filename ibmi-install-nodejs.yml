@@ -18,12 +18,12 @@
 
   - name: Install git if it is not there
     command: /QOpensys/pkgs/bin/yum install git -y
-    warn: false
+      warn: false
     when: git_stat.stat.exists == false
 
   - name: upgrade yum in case EC_POINT_copy error
     command: /QOpensys/pkgs/bin/yum upgrade -y
-    warn: false
+      warn: false
 
   - name: create symlink for git command to use git module
     file:
