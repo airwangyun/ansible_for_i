@@ -7,13 +7,6 @@
     checkout_dir: 'tmp_nodejs'
 
   tasks:
-  - name: create symlink for git command to use git module
-    file:
-      state: link
-      src: /QOpensys/pkgs/bin/yum
-      path: /usr/bin/yum
-    ignore_errors: true
-    
   - name: Install Node js
     command: /QOpensys/pkgs/bin/yum install nodejs10 -y
     ignore_errors: True
@@ -28,9 +21,7 @@
     when: git_stat.stat.exists == false
 
   - name: upgrade yum in case EC_POINT_copy error
-    yum:
-      name: '*'
-      state: 'latest'
+    command: /QOpensys/pkgs/bin/yum upgrade -y
 
   - name: create symlink for git command to use git module
     file:
