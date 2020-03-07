@@ -51,7 +51,7 @@
 
       - name: Check if all the PTFs of {{ product_id }} have been applied after IPL by ibmi_sql_query module.
         ibmi_sql_query:
-          sql: "select count(*) as ptf_need_ipl_count from qsys2.ptf_info where ptf_ipl_action <> 'NONE'
+          sql: "select PTF_IDENTIFIER as ptf_need_ipl_count from qsys2.ptf_info where ptf_ipl_action <> 'NONE'
                 and ptf_product_id = '{{ product_id }}'"
           expected_row_count: 0
         register: ptf_status_result2
