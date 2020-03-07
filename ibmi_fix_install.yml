@@ -44,7 +44,6 @@
 
       - name: Reboot the IBM i system by ibmi_reboot module
         ibmi_reboot:
-          how_to_end: IMMED
           pre_reboot_delay: 10
           post_reboot_delay: 60
           reboot_timeout: 1000
