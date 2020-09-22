@@ -1,2 +1,2 @@
 collections:
-  - name: ibm.power_ibmi
+  - name: ibm.power_ibmi:1.0.1
